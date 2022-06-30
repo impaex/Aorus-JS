@@ -1,0 +1,26 @@
+{
+  "name": "aorus-js",
+  "version": "1.0.0",
+  "description": "A remake of the Aorus discord bot, with improved features and performance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/impaex/Aorus-JS.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Impaex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/impaex/Aorus-JS/issues"
+  },
+  "homepage": "https://github.com/impaex/Aorus-JS#readme",
+  "dependencies": {
+    "discord.js": "^13.8.1"
+  }
+}
