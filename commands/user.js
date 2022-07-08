@@ -5,6 +5,6 @@ module.exports = {
 		.setName('user')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction) {
-        await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+        await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}\nProfile Picture: ${interaction.user.avatarURL()}`);
 	},
 };
