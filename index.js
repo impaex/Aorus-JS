@@ -3,12 +3,22 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
 const dotenv = require('dotenv');
+const Sequelize = require('sequelize');
 
 // Initialize dotenv
 dotenv.config();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
+// Initiate database
+const sequelize = new Sequelize('database', 'user', 'password', {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	// SQLite only
+	storage: 'database.sqlite',
+});
 
 // Load commands
 client.commands = new Collection();
