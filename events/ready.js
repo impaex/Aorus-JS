@@ -1,5 +1,3 @@
-const Servers = require("../db/Servers");
-
 module.exports = {
 	name: 'ready',
 	once: true,
