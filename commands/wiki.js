@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, SlashCommandSubcommandGroupBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const customEmbed = require('../helpers/customEmbed');
 const truncateString = require('../helpers/truncateString');
 const axios = require('axios');
@@ -64,7 +64,7 @@ module.exports = {
                         const equipment = $();
                         const riderWeaponry = $();
 
-                        embed.addField("Stats", `Temperament: **${temperament}**\nRideable: **${rideable}**`, true);
+                        embed.addFields({ name: "Stats", value: `Temperament: **${temperament}**\nRideable: **${rideable}**`, inline: true} );
 
                         const tamable = $(".info-arkitex-left.info-X3-33").eq(3).text().trim() === 'Yes'? true : false;
                         if (tamable) {
@@ -73,10 +73,10 @@ module.exports = {
                             const preferredKibble = $(".info-X2-60").eq(6).text().trim();
                             const preferredFood = $(".info-X2-60").eq(7).text().trim();
 
-                            embed.addField("Taming", `Taming method: **${tamingMethod}**\nPreferred Kibble: **${preferredKibble}**\nPreferred food: **${preferredFood}**\n\nClick [here](${dododexDomainName + "/taming/" + pageTitle.toLowerCase()}) to go to Dododex page ()`, true);
+                            embed.addFields({ name: "Taming", value: `Taming method: **${tamingMethod}**\nPreferred Kibble: **${preferredKibble}**\nPreferred food: **${preferredFood}**\n\nClick [here](${dododexDomainName + "/taming/" + pageTitle.toLowerCase()}) to go to Dododex page ()`, inline: true});
                         }
                         else {
-                            embed.addField("Taming", "This creature is not tamable.", true);
+                            embed.addFields({ name: "Taming", value: "This creature is not tamable.", inline: true });
                         }
 
                         const breedable = $(".info-X3-33").eq(10).text().trim() === 'Yes'? true : false;
@@ -86,10 +86,10 @@ module.exports = {
                             // Splits the incubater temperature from normal temperature, then splits out the Celsius from Fahrenheit.
                             const incubaterTemperature = $(".info-arkitex-right.info-X2-60").eq(22).text().split(":")[1].split("/")[0].trim();
 
-                            embed.addField("Breeding", `Incubation temperature: **${incubationTemperature}**\nIncubation with [Egg Incubator](https://ark.wiki.gg/wiki/Egg_Incubator): **${incubaterTemperature}**`, true);
+                            embed.addFields({ name: "Breeding", value: `Incubation temperature: **${incubationTemperature}**\nIncubation with [Egg Incubator](https://ark.wiki.gg/wiki/Egg_Incubator): **${incubaterTemperature}**`, inline: true});
                         }
                         else {
-                            embed.addField("Breeding", "This creature is not breedable.", true);
+                            embed.addFields({ name: "Breeding", value: "This creature is not breedable.", inline: true });
                         }
                         await interaction.reply( {embeds: [embed]} );
                     }
